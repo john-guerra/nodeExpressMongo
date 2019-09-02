@@ -4,19 +4,32 @@ const express = require("express");
 const app = express();
 const PORT = 8080;
 
-function fileCbk(err, data) {
-  if (err) throw err;
 
-  console.log("dos");
-  const dataParsed = JSON.parse(data);
-  console.log("got data", dataParsed.length);
+function readData(fnCBK) {
+  fs.readFile(
+    "gananLosCorrupto.json",
+    (err, data) => {
+      if (err) throw err;
+
+      console.log("dos");
+      const dataParsed = JSON.parse(data);
+      console.log("got data", dataParsed.length);
+
+      fnCBK(dataParsed);
+    }
+  );
 }
 
-fs.readFile("gananLosCorruptos.json", fileCbk);
 
 app.get("/", (req, res) => {
   console.log("Got GET /");
-  res.send("Holi John");
+
+  function fnCallbackData(data) {
+    res.send(data);
+  }
+
+  readData(fnCallbackData);
+
 });
 
 app.listen(PORT, () => {
