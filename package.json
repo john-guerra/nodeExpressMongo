@@ -19,5 +19,8 @@
   "homepage": "https://github.com/john-guerra/nodeExpress3#readme",
   "devDependencies": {
     "eslint": "^6.3.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
