@@ -7,7 +7,7 @@ const PORT = 8080;
 
 function readData(fnCBK) {
   fs.readFile(
-    "gananLosCorrupto.json",
+    "gananLosCorruptos.json",
     (err, data) => {
       if (err) throw err;
 
