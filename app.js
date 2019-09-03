@@ -67,6 +67,11 @@ app.get("/", (req, res) => {
 
 });
 
+
+app.get("/data", (req, res) => {
+  // Pasar el json al cliente
+});
+
 app.listen(PORT, () => {
   console.log(`My app is running at http://localhost:${PORT}`);
 });
